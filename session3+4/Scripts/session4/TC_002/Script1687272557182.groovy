@@ -20,7 +20,7 @@ import org.openqa.selenium.Keys as Keys
 WebUI.openBrowser("https://opensource-demo.orangehrmlive.com")
 WebUI.setText(findTestObject('Object Repository/Textbox/txt_Username'), GlobalVariable.userName)
 WebUI.click(findTestObject('Object Repository/Button/btn_Login'))
-String requiredMess_Pass = WebUI.getText(findTestObject('Object Repository/Label/lbl_RequestPass'))
+String requiredMess_Pass = WebUI.getText(findTestObject('Object Repository/Label/lbl_RequiredPass'))
 WebUI.verifyTextPresent(requiredMess_Pass, true)
 
 WebUI.clearText(findTestObject('Object Repository/Textbox/txt_Username'))

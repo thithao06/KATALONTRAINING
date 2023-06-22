@@ -18,13 +18,9 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser("https://opensource-demo.orangehrmlive.com")
-String web = WebUI.getUrl()
-if (web.endsWith("/auth/login")) {
-	println "This is an expected page"
-}
-else {
-	println "Unexpected page"
-}
+WebUI.getUrl().endsWith("mn")
+
+//WebUI.verifyMatch(null, null, false)
 
 String expectedLoginLabel = "Login"
 String actualLoginLabel = WebUI.getText(findTestObject('Object Repository/Label/lbl_LoginPage'))
@@ -33,20 +29,22 @@ WebUI.verifyEqual(actualLoginLabel,expectedLoginLabel)
 String expectedUserNameLabel = "Username"
 String expectedPassLabel = "Password"
 
-String actualUserNameLabel = WebUI.getText(findTestObject('Object Repository/Textbox/txt_Username'))
+String actualUserNameLabel = WebUI.getText(findTestObject('Object Repository/Label/lbl_UserName'))
 WebUI.verifyEqual(actualUserNameLabel,expectedUserNameLabel)
 
-String actualPassLabel = WebUI.getText(findTestObject('Object Repository/Textbox/txt_Password'))
+String actualPassLabel = WebUI.getText(findTestObject('Object Repository/Label/lbl_Password'))
 WebUI.verifyEqual(actualPassLabel,expectedPassLabel)
 
 String expectedLoginBtn = "Login"
 String actualLoginBtn = WebUI.getText(findTestObject('Object Repository/Button/btn_Login'))
 WebUI.verifyEqual(actualLoginBtn, expectedLoginBtn)
 
+WebUI.click(findTestObject('Object Repository/Button/btn_Login'))
+
 String requiredMess_User = WebUI.getText(findTestObject('Object Repository/Label/lbl_RequiredUserName'))
 WebUI.verifyTextPresent(requiredMess_User, true)
 
-String requiredMess_Pass = WebUI.getText(findTestObject('Object Repository/Label/lbl_RequestPass'))
+String requiredMess_Pass = WebUI.getText(findTestObject('Object Repository/Label/lbl_RequiredPass'))
 WebUI.verifyTextPresent(requiredMess_Pass, true)
 
 WebUI.closeBrowser()

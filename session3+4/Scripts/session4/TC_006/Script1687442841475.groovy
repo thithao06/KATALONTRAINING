@@ -17,19 +17,10 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.openBrowser("https://opensource-demo.orangehrmlive.com")
+WebUI.openBrowser(GlobalVariable.URL)
+WebUI.click(findTestObject('Object Repository/Link/lnk_OrangeHRM'))
 
-// Login with wrong password
-WebUI.setText(findTestObject('Object Repository/Textbox/txt_Username'), GlobalVariable.userName)
-WebUI.setText(findTestObject('Object Repository/Textbox/txt_Password'), "admin1234")
-WebUI.click(findTestObject('Object Repository/Button/btn_Login'))
-
-// Verify alert message is shown
-String alertMessage = WebUI.getText(findTestObject('Object Repository/Label/lbl_LoginAlert'))
-WebUI.verifyEqual(alertMessage, "Invalid credentials")
-
-// Verify username and password is cleared
-WebUI.verifyElementText(findTestObject('Object Repository/Textbox/txt_Username'), "")
-WebUI.verifyElementText(findTestObject('Object Repository/Textbox/txt_Password'), "")
+String newUrl = WebUI.getUrl()
+WebUI.verifyMatch(newUrl, "https://www.orangehrm.com/", true)
 
 WebUI.closeBrowser()

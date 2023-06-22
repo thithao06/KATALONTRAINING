@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>RegisterNotification</name>
+   <name>lnk_OrangeHRM</name>
    <tag></tag>
-   <elementGuidId>732fb72a-1269-4e30-afa1-08a98e3dd18b</elementGuidId>
+   <elementGuidId>845ac233-1f87-4fe6-aa86-b1103b8c8705</elementGuidId>
    <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//a[contains(@href,'orangehrm.com')]</value>
+      </entry>
       <entry>
          <key>BASIC</key>
          <value></value>
-      </entry>
-      <entry>
-         <key>XPATH</key>
-         <value>//p[@class='message']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

@@ -24,9 +24,24 @@ WebUI.setText(findTestObject('Object Repository/Textbox/txt_Username'), GlobalVa
 WebUI.setText(findTestObject('Object Repository/Textbox/txt_Password'), "admin1234")
 WebUI.click(findTestObject('Object Repository/Button/btn_Login'))
 
-// Verify alert message is shown
+// Verify alert icon and message
 String alertMessage = WebUI.getText(findTestObject('Object Repository/Label/lbl_LoginAlert'))
 WebUI.verifyEqual(alertMessage, "Invalid credentials")
+WebUI.verifyElementPresent(findTestObject('Object Repository/Icon/icon_alert'),10)
+
+// Verify username and password is cleared
+WebUI.verifyElementText(findTestObject('Object Repository/Textbox/txt_Username'), "")
+WebUI.verifyElementText(findTestObject('Object Repository/Textbox/txt_Password'), "")
+
+// Login with wrong username
+WebUI.setText(findTestObject('Object Repository/Textbox/txt_Username'), "Admin1")
+WebUI.setText(findTestObject('Object Repository/Textbox/txt_Password'), GlobalVariable.password)
+WebUI.click(findTestObject('Object Repository/Button/btn_Login'))
+
+// Verify alert icon and message
+String alertMessage = WebUI.getText(findTestObject('Object Repository/Label/lbl_LoginAlert'))
+WebUI.verifyEqual(alertMessage, "Invalid credentials")
+WebUI.verifyElementPresent(findTestObject('Object Repository/Icon/icon_alert'),10)
 
 // Verify username and password is cleared
 WebUI.verifyElementText(findTestObject('Object Repository/Textbox/txt_Username'), "")

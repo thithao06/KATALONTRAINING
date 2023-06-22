@@ -19,17 +19,14 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser("https://opensource-demo.orangehrmlive.com")
 
-// Login with wrong password
-WebUI.setText(findTestObject('Object Repository/Textbox/txt_Username'), GlobalVariable.userName)
-WebUI.setText(findTestObject('Object Repository/Textbox/txt_Password'), "admin1234")
-WebUI.click(findTestObject('Object Repository/Button/btn_Login'))
+// Forgot password and redirect to Reset Password page
+WebUI.click(findTestObject('Object Repository/Link/lnk_forgotPassword'))
 
-// Verify alert message is shown
-String alertMessage = WebUI.getText(findTestObject('Object Repository/Label/lbl_LoginAlert'))
-WebUI.verifyEqual(alertMessage, "Invalid credentials")
+WebUI.verifyElementClickable(findTestObject('Object Repository/Button/btn_ForgetPass_Cancel'))
+WebUI.verifyElementClickable(findTestObject('Object Repository/Button/btn_ForgetPass_Reset'))
 
-// Verify username and password is cleared
-WebUI.verifyElementText(findTestObject('Object Repository/Textbox/txt_Username'), "")
-WebUI.verifyElementText(findTestObject('Object Repository/Textbox/txt_Password'), "")
+WebUI.click(findTestObject('Object Repository/Button/btn_ForgetPass_Cancel'))
 
 WebUI.closeBrowser()
+
+
