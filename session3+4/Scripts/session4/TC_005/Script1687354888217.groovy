@@ -21,6 +21,8 @@ WebUI.openBrowser("https://opensource-demo.orangehrmlive.com")
 
 // Forgot password and redirect to Reset Password page
 WebUI.click(findTestObject('Object Repository/Link/lnk_forgotPassword'))
+String resetPWURL = WebUI.getUrl()
+WebUI.verifyEqual(resetPWURL.endsWith("/auth/requestPasswordResetCode"), true)
 
 WebUI.verifyElementClickable(findTestObject('Object Repository/Button/btn_ForgetPass_Cancel'))
 WebUI.verifyElementClickable(findTestObject('Object Repository/Button/btn_ForgetPass_Reset'))

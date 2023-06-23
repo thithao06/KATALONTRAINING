@@ -18,7 +18,8 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser("https://opensource-demo.orangehrmlive.com")
-WebUI.getUrl().endsWith("mn")
+String loginURL = WebUI.getUrl()
+WebUI.verifyEqual(loginURL.endsWith("auth/login"), true)
 
 //WebUI.verifyMatch(null, null, false)
 

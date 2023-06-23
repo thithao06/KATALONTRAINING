@@ -24,3 +24,4 @@ WebUI.setText(findTestObject('Object Repository/Textbox/txt_Password'), GlobalVa
 WebUI.click(findTestObject('Object Repository/Button/btn_Login'))
 WebUI.verifyElementChecked(findTestObject('Object Repository/List/lst_Dashboard'), 5)
 
+WebUI.closeBrowser()
