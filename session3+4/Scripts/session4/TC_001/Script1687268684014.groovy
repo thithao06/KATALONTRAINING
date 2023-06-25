@@ -17,34 +17,39 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.openBrowser("https://opensource-demo.orangehrmlive.com")
+'Open browser and URL'
+WebUI.openBrowser(GlobalVariable.URL)
+'Get current URL'
 String loginURL = WebUI.getUrl()
+'Verify URL endswith /auth/login'
 WebUI.verifyEqual(loginURL.endsWith("auth/login"), true)
 
-//WebUI.verifyMatch(null, null, false)
-
+'Verify Login text'
 String expectedLoginLabel = "Login"
 String actualLoginLabel = WebUI.getText(findTestObject('Object Repository/Label/lbl_LoginPage'))
 WebUI.verifyEqual(actualLoginLabel,expectedLoginLabel)
 
+'Verify Username and Password field names'
 String expectedUserNameLabel = "Username"
 String expectedPassLabel = "Password"
-
 String actualUserNameLabel = WebUI.getText(findTestObject('Object Repository/Label/lbl_UserName'))
 WebUI.verifyEqual(actualUserNameLabel,expectedUserNameLabel)
-
 String actualPassLabel = WebUI.getText(findTestObject('Object Repository/Label/lbl_Password'))
 WebUI.verifyEqual(actualPassLabel,expectedPassLabel)
 
+'Verify Login button name'
 String expectedLoginBtn = "Login"
 String actualLoginBtn = WebUI.getText(findTestObject('Object Repository/Button/btn_Login'))
 WebUI.verifyEqual(actualLoginBtn, expectedLoginBtn)
 
+'Click on Login button'
 WebUI.click(findTestObject('Object Repository/Button/btn_Login'))
 
+'Verify that Username is required'
 String requiredMess_User = WebUI.getText(findTestObject('Object Repository/Label/lbl_RequiredUserName'))
 WebUI.verifyTextPresent(requiredMess_User, true)
 
+'Verify that Password is required'
 String requiredMess_Pass = WebUI.getText(findTestObject('Object Repository/Label/lbl_RequiredPass'))
 WebUI.verifyTextPresent(requiredMess_Pass, true)
 

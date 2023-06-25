@@ -17,18 +17,24 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.openBrowser("https://opensource-demo.orangehrmlive.com")
+'Open browser and URL'
+WebUI.openBrowser(GlobalVariable.URL)
 
 // Login with wrong password
+'Input username'
 WebUI.setText(findTestObject('Object Repository/Textbox/txt_Username'), GlobalVariable.userName)
+'Input password'
 WebUI.setText(findTestObject('Object Repository/Textbox/txt_Password'), "admin1234")
+'Click on Login button'
 WebUI.click(findTestObject('Object Repository/Button/btn_Login'))
 
 // Verify alert message is shown
+'Verify error message'
 String alertMessage = WebUI.getText(findTestObject('Object Repository/Label/lbl_LoginAlert'))
 WebUI.verifyEqual(alertMessage, "Invalid credentials")
 
 // Verify username and password is cleared
+'Verify Username and Password are blank'
 WebUI.verifyElementText(findTestObject('Object Repository/Textbox/txt_Username'), "")
 WebUI.verifyElementText(findTestObject('Object Repository/Textbox/txt_Password'), "")
 

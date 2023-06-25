@@ -19,9 +19,17 @@ import org.openqa.selenium.Keys as Keys
 
 //------------------cau 3
 int dem
-int i = 1
-for (int i = 1; i <= 100; i= i++) {
-	if (i %7 == 0)
-		dem += 1
+for(int i = 1; i <= 100; i++) {
+	if(i%7==0) {
+		dem++
+	}
 }
 println dem
+
+//int i = 1
+//while (i <= 100) {
+//	dem ++
+//	i = i + 7
+//}
+//println dem-1
+

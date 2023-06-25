@@ -14,14 +14,18 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import internal.GlobalVariable as GlobalVariable
-import org.openqa.selenium.Keys as Keys
+import internal.GlobalVariable
 
+'Open broswer and URL'
 WebUI.openBrowser(GlobalVariable.URL)
+'Input username'
 WebUI.setText(findTestObject('Object Repository/Textbox/txt_Username'), GlobalVariable.userName)
+'Input password'
 WebUI.setText(findTestObject('Object Repository/Textbox/txt_Password'), GlobalVariable.password)
-
+'Click on Login button'
 WebUI.click(findTestObject('Object Repository/Button/btn_Login'))
-WebUI.verifyElementChecked(findTestObject('Object Repository/List/lst_Dashboard'), 5)
+'Verify Dashboard is selected'
+String dashboard = WebUI.getText(findTestObject('Object Repository/List/lst_Dashboard'))
+WebUI.verifyEqual(dashboard,"Dashboard")
 
 WebUI.closeBrowser()

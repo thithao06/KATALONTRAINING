@@ -19,7 +19,6 @@ import org.openqa.selenium.Keys as Keys
 
 //------------------cau 11
 def BMI = [Name: "Thao Tran", Height: 155]
-double weight = 45
 Scanner input = new Scanner(System.in)
 //System.out.println("Nhap vao can nang: ")
 println "Nhap vao can nang: "

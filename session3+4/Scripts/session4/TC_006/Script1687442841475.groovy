@@ -13,14 +13,25 @@ import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
 import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.kms.katalon.core.webui.keyword.internal.WebUIAbstractKeyword
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+'Open browser and URL'
 WebUI.openBrowser(GlobalVariable.URL)
+'Click on OrangeHRM, Inc. link'
 WebUI.click(findTestObject('Object Repository/Link/lnk_OrangeHRM'))
-
+'Switch to OrangeHRM, Inc. window'
+WebUI.switchToWindowIndex(1)
+WebUI.waitForPageLoad(10)
+'Verify new window URL'
 String newUrl = WebUI.getUrl()
 WebUI.verifyMatch(newUrl, "https://www.orangehrm.com/", true)
+'Verify new window title'
+String newWindowTitle = WebUI.getWindowTitle()
+WebUI.verifyEqual(newWindowTitle.contains("OrangeHRM HR Software"), true)
 
 WebUI.closeBrowser()
+
+

@@ -17,15 +17,24 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.openBrowser("https://opensource-demo.orangehrmlive.com")
+'Open browser and URL'
+WebUI.openBrowser(GlobalVariable.URL)
+'Input username'
 WebUI.setText(findTestObject('Object Repository/Textbox/txt_Username'), GlobalVariable.userName)
+'Click on Login button'
 WebUI.click(findTestObject('Object Repository/Button/btn_Login'))
+'Verify that Password is required'
 String requiredMess_Pass = WebUI.getText(findTestObject('Object Repository/Label/lbl_RequiredPass'))
 WebUI.verifyTextPresent(requiredMess_Pass, true)
 
-WebUI.clearText(findTestObject('Object Repository/Textbox/txt_Username'))
+'Delete username'
+WebUI.sendKeys(findTestObject('Object Repository/Textbox/txt_Username'), Keys.chord(Keys.CONTROL,"a"))
+WebUI.sendKeys(findTestObject('Object Repository/Textbox/txt_Username'), Keys.chord(Keys.BACK_SPACE))
+'Input password'
 WebUI.setText(findTestObject('Object Repository/Textbox/txt_Password'), GlobalVariable.password)
+'Click on Login button'
 WebUI.click(findTestObject('Object Repository/Button/btn_Login'))
+'Verify that Username is required'
 String requiredMess_User = WebUI.getText(findTestObject('Object Repository/Label/lbl_RequiredUserName'))
 WebUI.verifyTextPresent(requiredMess_User, true)
 

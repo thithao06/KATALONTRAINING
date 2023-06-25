@@ -24,8 +24,17 @@ Scanner input = new Scanner(System.in)
 println "Nhap vao gia tri can tim index:  "
 String inputData = input.next()
 int index
+boolean isFind
 for (String item : languageList) {
-	if (item.toLowerCase() == inputData.toLowerCase())
+	if (item.toLowerCase() == inputData.toLowerCase()) 
+		{
 		index = languageList.indexOf(item)
+		isFind = true
+		}
 }
-println index
+if(isFind) {
+	println index
+}
+else {
+	println "Khong tim thay"
+}

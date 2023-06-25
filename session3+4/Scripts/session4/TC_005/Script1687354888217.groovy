@@ -17,16 +17,18 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.openBrowser("https://opensource-demo.orangehrmlive.com")
+'Open browser and URL'
+WebUI.openBrowser(GlobalVariable.URL)
 
-// Forgot password and redirect to Reset Password page
+'Click on Forgot Password'
 WebUI.click(findTestObject('Object Repository/Link/lnk_forgotPassword'))
+'Verify Reset Password URL'
 String resetPWURL = WebUI.getUrl()
 WebUI.verifyEqual(resetPWURL.endsWith("/auth/requestPasswordResetCode"), true)
-
+'Verify Cancel and Reset button is enable'
 WebUI.verifyElementClickable(findTestObject('Object Repository/Button/btn_ForgetPass_Cancel'))
 WebUI.verifyElementClickable(findTestObject('Object Repository/Button/btn_ForgetPass_Reset'))
-
+'Click on Cancel button'
 WebUI.click(findTestObject('Object Repository/Button/btn_ForgetPass_Cancel'))
 
 WebUI.closeBrowser()

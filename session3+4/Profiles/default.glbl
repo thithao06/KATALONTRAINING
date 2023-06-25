@@ -16,11 +16,6 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</initValue>
-      <name>URL_Login</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
       <initValue>'https://opensource-demo.orangehrmlive.com'</initValue>
       <name>URL</name>
    </GlobalVariableEntity>
